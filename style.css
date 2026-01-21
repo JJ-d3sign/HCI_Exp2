@@ -1,0 +1,103 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f7f9fb;
+    margin: 0;
+    padding: 0;
+    color: #2f3e46;
+}
+
+/* Header */
+header {
+    background-color: #1f8a8a;
+    color: white;
+    padding: 18px;
+    text-align: center;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #e6f5f5;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.navbar a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #1f8a8a;
+    font-weight: 600;
+}
+
+.navbar a:hover {
+    color: #145f5f;
+}
+
+/* Main container (card style) */
+.container {
+    width: 90%;
+    max-width: 520px;
+    margin: 40px auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+/* Headings */
+.container h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1f8a8a;
+}
+
+/* Inputs */
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #1f8a8a;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: #1f8a8a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #145f5f;
+}
+
+/* Video consultation box */
+.video-box {
+    background-color: #d9eeee;
+    height: 220px;
+    margin-top: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #145f5f;
+    font-weight: 600;
+}
+
+/* Profile text */
+.container p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
