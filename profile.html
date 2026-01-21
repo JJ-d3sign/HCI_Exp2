@@ -1,31 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Profile</title>
+    <meta charset="UTF-8">
+    <title>Profile | HealthConnect</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav class="sidebar">
+        <h2>HealthConnect</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="notes.html">Clinical Notes</a>
+        <a href="consultation.html">Consultation</a>
+        <a href="profile.html" class="active">My Profile</a>
+        <div style="margin-top: auto;"><a href="index.html" style="color:red;">Sign Out</a></div>
+    </nav>
 
-<header>
-    <h2>User Profile</h2>
-</header>
+    <div class="main-wrapper">
+        <header><h3>User Profile</h3><button class="secondary">Edit Profile</button></header>
+        <div class="content-body">
+            <div class="profile-grid" style="display: grid; grid-template-columns: 280px 1fr; gap: 24px;">
+                <div class="card" style="text-align: center;">
+                    <div class="avatar-circle" id="profAvatar">JJ</div>
+                    <h3 id="profName">Name</h3>
+                    <p id="profSub" style="color: #64748b; margin-top:-10px;">ID Info</p>
+                    <span class="status-tag completed">Verified Account</span>
+                    
+                    <div style="margin-top: 20px; border-top: 1px solid #e2e8f0; padding-top: 20px;">
+                        <button style="background: #ef4444; width: 100%;" onclick="location.href='index.html'">Logout</button>
+                    </div>
+                </div>
 
-<div class="navbar">
-    <a href="index.html">Login</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="appointment.html">Appointment</a>
-    <a href="consultation.html">Consultation</a>
-    <a href="profile.html">Profile</a>
-</div>
+                <div class="card">
+                    <div id="detailsGrid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;"></div>
+                    <div id="medicalBackground" style="margin-top: 24px; border-top: 1px solid #e2e8f0; padding-top: 20px;">
+                        <h4>Background</h4>
+                        <div id="summaryContent" style="background:#f8fafc; padding:15px; border-radius:8px; font-size:14px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="container">
-    <p><strong>Name:</strong> John Doe</p>
-    <p><strong>Role:</strong> Patient</p>
-    <p><strong>Email:</strong> johndoe@email.com</p>
-    <p><strong>Medical History:</strong> Available to Doctor</p>
+    <script>
+        const role = localStorage.getItem('userRole') || 'patient';
+        const detailsGrid = document.getElementById('detailsGrid');
+        const medicalBackground = document.getElementById('medicalBackground');
 
-    <button>Edit Profile</button>
-</div>
-
+        if (role === 'doctor') {
+            // Doctor Profile: Dr. Sharma
+            document.getElementById('profAvatar').innerText = 'DS';
+            document.getElementById('profName').innerText = 'Dr. Sharma';
+            document.getElementById('profSub').innerText = 'License: #MD9920';
+            
+            detailsGrid.innerHTML = `
+                <div class="info-group"><label>Specialty</label><p>Internal Medicine</p></div>
+                <div class="info-group"><label>Experience</label><p>12 Years</p></div>
+                <div class="info-group"><label>Email</label><p>dr.sharma@healthconnect.com</p></div>
+                <div class="info-group"><label>Hospital</label><p>City General Hospital</p></div>`;
+            
+            document.getElementById('summaryContent').innerText = "Senior Practitioner specialized in tele-health diagnostics.";
+        } else {
+            // Patient Profile: Joel Jacob
+            document.getElementById('profAvatar').innerText = 'JJ';
+            document.getElementById('profName').innerText = 'Joel Jacob';
+            document.getElementById('profSub').innerText = 'Patient ID: #B048';
+            
+            detailsGrid.innerHTML = `
+                <div class="info-group"><label>Full Name</label><p>Joel Jacob</p></div>
+                <div class="info-group"><label>Email</label><p>joel.jacob@email.com</p></div>
+                <div class="info-group"><label>Contact</label><p>+91 98765 43210</p></div>
+                <div class="info-group"><label>Patient ID</label><p>#B048</p></div>`;
+            
+            // Hide background for simplified patient view
+            medicalBackground.style.display = 'none';
+        }
+    </script>
 </body>
 </html>

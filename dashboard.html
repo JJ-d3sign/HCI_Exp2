@@ -1,32 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Dashboard</title>
+    <title>Dashboard | HealthConnect</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <nav class="sidebar">
+        <h2>HealthConnect</h2>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="notes.html">Clinical Notes</a>
+        <a href="consultation.html">Consultation</a>
+        <a href="profile.html">My Profile</a>
+        <div style="margin-top: auto;"><a href="index.html" style="color: #ef4444;">Sign Out</a></div>
+    </nav>
 
-<header>
-    <h2>Dashboard</h2>
-    <p>Welcome to Your Telemedicine Portal</p>
-</header>
+    <div class="main-wrapper">
+        <header>
+            <h3 id="roleHeader">Portal</h3>
+            <div class="user-pill" id="userDisplay">Identity</div>
+        </header>
 
-<div class="navbar">
-    <a href="dashboard.html">Dashboard</a>
-    <a href="appointment.html">Appointment</a>
-    <a href="consultation.html">Consultation</a>
-    <a href="profile.html">Profile</a>
-    <a href="index.html">Logout</a>
-</div>
+        <div class="content-body">
+            <div class="grid-layout">
+                <section>
+                    <div id="doctorView" style="display:none;">
+                        <div class="card">
+                            <h3>Appointments Today</h3>
+                            <div style="display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #e2e8f0;">
+                                <div><strong>09:00 AM - Joel Jacob</strong><br><small>Follow-up</small></div>
+                                <span class="status-tag completed">Done</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding: 15px 0; align-items: center;">
+                                <div><strong>10:15 AM - Sarah Jenkins</strong><br><small>Urgent Consultation</small></div>
+                                <button onclick="location.href='consultation.html'">Start Call</button>
+                            </div>
+                        </div>
+                    </div>
 
-<div class="container">
-    <h3>Main Menu</h3>
-    <p>Select an option to continue:</p>
+                    <div id="patientView" style="display:none;">
+                        <div class="card">
+                            <h3>Upcoming Consultation</h3>
+                            <p>Video call scheduled with <strong>Dr. Sharma</strong> at 2:30 PM today.</p>
+                            <button onclick="location.href='consultation.html'">Join Session</button>
+                        </div>
+                        <button class="secondary" style="margin-top: 20px;" onclick="location.href='appointment.html'">+ Book New Session</button>
+                    </div>
+                </section>
 
-    <button onclick="location.href='appointment.html'">Book Appointment</button>
-    <button onclick="location.href='consultation.html'">Join Consultation</button>
-    <button onclick="location.href='profile.html'">View Profile</button>
-</div>
+                <aside>
+                    <div class="card">
+                        <h4>Notifications</h4>
+                        <p style="font-size: 14px; color: #64748b;">• Lab results are ready</p>
+                        <p style="font-size: 14px; color: #64748b;">• Prescription renewed</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        const role = localStorage.getItem('userRole') || 'patient';
+        document.getElementById(role + 'View').style.display = 'block';
+        document.getElementById('roleHeader').innerText = role === 'doctor' ? 'Professional Portal' : 'Patient Portal';
+        document.getElementById('userDisplay').innerText = role === 'doctor' ? 'DS | Dr. Sharma' : 'JJ | Joel Jacob';
+    </script>
 </body>
 </html>

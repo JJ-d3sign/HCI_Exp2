@@ -1,103 +1,155 @@
+:root {
+    --primary: #00796b;
+    --primary-dark: #004d40;
+    --bg-light: #f8fafc;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --white: #ffffff;
+}
+
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #f7f9fb;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background-color: var(--bg-light);
     margin: 0;
-    padding: 0;
-    color: #2f3e46;
+    color: var(--text-main);
+    display: flex;
+    min-height: 100vh;
 }
 
-/* Header */
-header {
-    background-color: #1f8a8a;
-    color: white;
-    padding: 18px;
-    text-align: center;
+/* Sidebar Navigation */
+.sidebar {
+    width: 260px;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
 }
 
-/* Navbar */
-.navbar {
-    background-color: #e6f5f5;
-    padding: 12px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+.sidebar h2 {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-bottom: 32px;
 }
 
-.navbar a {
-    margin: 0 15px;
+.sidebar a {
+    padding: 12px 16px;
     text-decoration: none;
-    color: #1f8a8a;
-    font-weight: 600;
+    color: var(--text-muted);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-weight: 500;
 }
 
-.navbar a:hover {
-    color: #145f5f;
+.sidebar a:hover, .sidebar a.active {
+    background: #f0fdfa;
+    color: var(--primary);
 }
 
-/* Main container (card style) */
-.container {
-    width: 90%;
-    max-width: 520px;
-    margin: 40px auto;
-    background-color: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+/* Main Layout Wrapper */
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Headings */
-.container h3 {
-    text-align: center;
+header {
+    background: var(--white);
+    padding: 16px 40px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-body {
+    padding: 40px;
+}
+
+.grid-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 32px;
+}
+
+/* UI Components */
+.card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    margin-bottom: 24px;
+}
+
+.info-group {
     margin-bottom: 20px;
-    color: #1f8a8a;
 }
 
-/* Inputs */
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 14px;
+.info-group label {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
 }
 
-input:focus, select:focus {
-    outline: none;
-    border-color: #1f8a8a;
+.info-group p {
+    margin: 0;
+    font-weight: 500;
 }
 
-/* Buttons */
 button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 20px;
-    background-color: #1f8a8a;
+    background: var(--primary);
     color: white;
     border: none;
-    border-radius: 6px;
-    font-size: 15px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #145f5f;
+button.secondary {
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--text-main);
 }
 
-/* Video consultation box */
-.video-box {
-    background-color: #d9eeee;
-    height: 220px;
-    margin-top: 15px;
-    border-radius: 8px;
+.status-tag {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.completed { background: #dcfce7; color: #166534; }
+
+.avatar-circle {
+    width: 100px;
+    height: 100px;
+    background: #e2e8f0;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #145f5f;
-    font-weight: 600;
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--primary);
+    margin: 0 auto 16px;
 }
 
-/* Profile text */
-.container p {
-    line-height: 1.6;
-    margin: 10px 0;
+/* Note Card Component */
+.note-card {
+    border-left: 5px solid var(--primary);
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    border-left: 5px solid var(--primary);
 }

@@ -1,38 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Book Appointment</title>
+    <title>Booking | HealthConnect</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <h2>Book Appointment</h2>
-</header>
-
-<div class="navbar">
-    <a href="index.html">Login</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="appointment.html">Appointment</a>
-    <a href="consultation.html">Consultation</a>
-    <a href="profile.html">Profile</a>
-</div>
-
-<div class="container">
-    <label>Select Doctor</label>
-    <select>
-        <option>Dr. Sharma (General)</option>
-        <option>Dr. Mehta (Cardiologist)</option>
-    </select>
-
-    <label>Date</label>
-    <input type="date">
-
-    <label>Time</label>
-    <input type="time">
-
-    <button>Confirm Appointment</button>
-</div>
-
+    <nav class="sidebar">
+        <h2>HealthConnect</h2>
+        <a href="dashboard.html">Dashboard</a>
+    </nav>
+    <div class="main-wrapper">
+        <header><h3>Schedule New Consultation</h3></header>
+        <div class="content-body">
+            <div class="card" style="max-width: 500px;">
+                <label>Department</label>
+                <select style="width:100%; padding:12px; margin-bottom:20px; border-radius:8px; border:1px solid #e2e8f0;">
+                    <option>General Medicine</option>
+                    <option>Cardiology</option>
+                </select>
+                <label>Preferred Date</label>
+                <input type="date" style="width:100%; padding:12px; margin-bottom:20px; border-radius:8px; border:1px solid #e2e8f0;">
+                <button style="width:100%;" onclick="alert('Requested!'); location.href='dashboard.html'">Request Session</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

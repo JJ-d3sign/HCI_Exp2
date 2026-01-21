@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clinical Notes | HealthConnect</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <h2>HealthConnect</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="notes.html" class="active">Clinical Notes</a>
+        <a href="consultation.html">Consultation</a>
+        <a href="profile.html">My Profile</a>
+        <div style="margin-top: auto;"><a href="index.html" style="color:red;">Sign Out</a></div>
+    </nav>
+
+    <div class="main-wrapper">
+        <header><h3 id="noteHeader">Records</h3></header>
+        <div class="content-body">
+            <div id="doctorNotes" style="display:none;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                    <h3>Patient History Log</h3>
+                    <button>+ Create New Note</button>
+                </div>
+                <div class="note-card">
+                    <div style="display:flex; justify-content:space-between; font-size:12px; color:#64748b; margin-bottom:8px;">
+                        <span>Patient: Sarah Jenkins</span><span>Jan 21, 2026</span>
+                    </div>
+                    <p><strong>Clinical Observation:</strong> Hypertension management showing progress. Continuing medication.</p>
+                </div>
+                <div class="note-card">
+                    <div style="display:flex; justify-content:space-between; font-size:12px; color:#64748b; margin-bottom:8px;">
+                        <span>Patient: Joel Jacob</span><span>Jan 15, 2026</span>
+                    </div>
+                    <p><strong>Clinical Observation:</strong> Wellness check complete. Vitals normal.</p>
+                </div>
+            </div>
+
+            <div id="patientNotes" style="display:none;">
+                <h3>My Visit Summaries</h3>
+                <div class="note-card">
+                    <div style="display:flex; justify-content:space-between; font-size:12px; color:#64748b; margin-bottom:8px;">
+                        <span>Doctor: Dr. Sharma</span><span>Jan 15, 2026</span>
+                    </div>
+                    <p><strong>Summary:</strong> General wellness check completed. Your vitals are stable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const role = localStorage.getItem('userRole') || 'patient';
+        if (role === 'doctor') {
+            document.getElementById('doctorNotes').style.display = 'block';
+            document.getElementById('noteHeader').innerText = 'Clinical Documentation';
+        } else {
+            document.getElementById('patientNotes').style.display = 'block';
+            document.getElementById('noteHeader').innerText = 'My Health Summaries';
+        }
+    </script>
+</body>
+</html>
